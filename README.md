@@ -1,4 +1,4 @@
-#STARTER KIT FOR FROM PROJECTS - Version 1.0.0
+#STARTER KIT FOR FORM  PROJECTS - Version 1.0.0
 =============================
 ##OWNER - Jarl HELIN MIAILHE
 =============================
