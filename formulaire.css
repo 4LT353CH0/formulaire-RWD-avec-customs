@@ -1,0 +1,768 @@
+    /*Le formulaire HTML5, CSS et PHP*/
+    /*
+//////////
+NOTES
+//////////
+*/
+    /*
+Colours
+----
+LavenderBlush    	#FFF0F5
+Rose de merde       #FCD6E3
+MistyRose        	#FFE4E1
+Pink 	            #FFC0CB 
+LightPink           #FFB6C1 
+HotPink          	#FF69B4
+DeepPink         	#FF1493 
+PaleVioletRed       #DB7093
+MediumVioletRed     #C71585
+Foncé rose          #8E1B62
+*/
+    /*
+//////////
+Fin NOTES
+//////////
+*/
+    /*
+//////////
+Stylisation RESET
+//////////
+*/
+    
+    input:before,
+    textarea:before,
+    label:before,
+    button:before,
+    fieldset:before,
+    div:before,
+    span:before,
+    input:after,
+    textarea:after,
+    label:after,
+    button:after,
+    fieldset:after,
+    div:after,
+    span:after,
+    .ligne:after,
+    .ligne:before {
+        content: "";
+        display: table;
+    }
+    
+    input:before,
+    textarea:before,
+    label:before,
+    button:before,
+    fieldset:before,
+    div:before,
+    span:before,
+    input:after,
+    textarea:after,
+    label:after,
+    button:after,
+    fieldset:after,
+    div:after,
+    span:after,
+    .ligne:after,
+    .ligne:before {
+        clear: both;
+    }
+    
+    input:before,
+    textarea:before,
+    label:before,
+    button:before,
+    fieldset:before,
+    div:before,
+    span:before,
+    input:after,
+    textarea:after,
+    label:after,
+    button:after,
+    fieldset:after,
+    div:after,
+    span:after,
+    .ligne:after,
+    .ligne:before {
+        zoom: 1;
+        /* For IE 6/7 (trigger hasLayout) */
+    }
+    
+    input,
+    textarea,
+    label,
+    button,
+    fieldset,
+    div,
+    span,
+    input,
+    textarea,
+    label,
+    button,
+    fieldset,
+    div,
+    span,
+    form {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    h1,
+    h3,
+    h4,
+    h5,
+    h6,
+    ol,
+    ul,
+    dl,
+    form {
+        margin: 0;
+        padding: 0;
+    }
+    
+    input,
+    textarea,
+    button,
+    label,
+    legend,
+    select,
+    option,
+    checkbox,
+    fieldset {
+        padding: 0;
+        margin: 0;
+        background: #fff;
+        font-size: 100%;
+        border: 0;
+    }
+    /*FF bug opacité inf à 100%*/
+    
+    ::-moz-placeholder {
+        opacity: 1;
+    }
+    
+    body {
+        background: #e1e1e1;
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        font-family: 'helvetica neue', arial, sans-serif;
+    }
+    /*vertical align child via parent */
+    
+    .vaParent {
+        display: table;
+        height: 100%;
+    }
+    
+    .vaChild {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .invisible {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    /*
+//////////
+Fin RESET
+//////////
+*/
+    /*Pour le rendre plus souple*/
+    
+    body * {
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        -moz-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+    }
+    /*
+//////////
+Mes styles génériques
+//////////
+*/
+    
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: #C71585;
+        margin: 0;
+        padding: 0;
+        color: #444;
+    }
+    
+    h3 {
+        min-height: 100px;
+    }
+    
+    header {
+        text-align: center;
+        color: darkgray;
+        height: 200px;
+        width: 100%;
+    }
+    
+    form {
+        width: 100%;
+        min-width: 480px;
+        margin: 20px 0;
+        background: #fff;
+        padding: 20px 20px;
+        min-width: 320px;
+    }
+    
+    form input {
+        padding: 10px 13px;
+        color: DeepPink;
+        background: #FCEAF0;
+        border-bottom: 1px DeepPink dotted;
+    }
+    
+    form input:focus {
+        background: #FFF7F9;
+        color: DeepPink;
+        font-family: monospace;
+        font-size: 125%;
+        font-weight: 900;
+        outline: none !important;
+        border-bottom-style: solid;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    
+    fieldset {
+        position: relative;
+        background: #FCEAF0;
+        padding: 100px 0 100px 0;
+    }
+    
+    fieldset#meschoses h3 {
+        padding: 10px;
+        margin: 10px;
+        border-top: 1px solid #c71585;
+    }
+    
+    label {
+        margin: 10px 0;
+        display: block;
+        background: #FCEAF0;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    
+    legend {
+        text-transform: uppercase;
+        font-size: 175%;
+        color: #C71585;
+        border-bottom: 3px solid #C71585;
+        border-top: 3px solid #C71585;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    ::-webkit-input-placeholder {
+        /* Safari, Chrome and Opera */
+        color: #FF69B4;
+    }
+    
+    :-moz-placeholder {
+        /* Firefox 18- */
+        color: #FF69B4;
+    }
+    
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #FF69B4;
+    }
+    
+    :-ms-input-placeholder {
+        /* IE 10+ */
+        color: #FF69B4;
+    }
+    
+    ::-ms-input-placeholder {
+        /* Edge */
+        color: #FF69B4;
+    }
+    
+    :placeholder-shown {
+        /* Standard one last! */
+        color: #FF69B4;
+    }
+    
+    label span {
+        text-transform: uppercase;
+        font-size: 105%;
+        color: DeepPink;
+        display: none;
+        /*if desktop > display:inline-block;*/
+    }
+    
+    label:hover,
+    label:hover span {
+        color: #8E1B62;
+    }
+    
+    input {
+        width: 100%;
+        display: inline-block;
+    }
+    
+    select {
+        text-align: center;
+        margin: 0px 10% 40px 10%;
+        padding: 15px 30px;
+        width: 80%;
+        color: #FF69B4;
+        border: 2px;
+        border-radius: 0;
+        -webkit-appearance: #000;
+        -moz-appearance: #000;
+        appearance: #000;
+    }
+    
+    select:focus {
+        background: deeppink;
+        color: #FCEAF0;
+        box-shadow: none;
+    }
+    
+    select option {
+        background: #FF69B4;
+        color: deeppink;
+        width: 100%;
+        color: #840A4B;
+        padding: 10px 0;
+        border-radius: 0;
+    }
+    
+    select option:focus,
+    select option:hover {
+        background: #FCD6E3;
+        color: #8E1B62;
+    }
+    
+    input[type="file"] {
+        background: #FCEAF0;
+    }
+    
+    label {
+        text-transform: uppercase;
+        font-size: 105%;
+        display: inline-block;
+        color: DeepPink;
+        display: inline-block;
+    }
+    
+    label span.sujet {
+        display: none;
+        /*if desktop > display:inline-block;*/
+    }
+    
+    textarea {
+        background: #FFF7F9;
+        /*        background: #FCEAF0;*/
+        color: #FF69B4;
+        min-height: 220px;
+        padding: 20px;
+    }
+    
+    textarea:focus {
+        color: DeepPink;
+        font-family: monospace;
+        font-size: 125%;
+        font-weight: 900;
+        outline: none !important;
+        border: 1px dotted;
+    }
+    /*
+//////////
+Mes styles spécifiques
+//////////
+*/
+    /*Personalisation des RADIOs*/
+    
+    input[type="radio"] {
+        /*display: none;*/
+        position: absolute;
+        top: 0;
+        left: -9999px
+    }
+    
+    input[type="radio"] + label {
+        color: DeepPink;
+    }
+    
+    input[type="radio"]:focus + label {
+        border: 1px dotted DeepPink;
+    }
+    
+    input[type="radio"] + label span {
+        display: inline-block;
+        background: #FFB6C1;
+        width: 19px;
+        height: 19px;
+        margin: -4px 10px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+    
+    input[type="radio"]:checked + label span {
+        background: #FCEAF0;
+    }
+    
+    input[type="radio"]:checked + label {
+        background: #FFB6C1;
+    }
+    
+    input[type="radio"]:focus + label {
+        border: 1px dotted #C71585;
+    }
+    /*    Upload filetype*/
+    
+    input[type="file"] {
+        display: none;
+    }
+    
+    label#uploadAvatar div {
+        color: deepPink;
+        background: #FFB6C1;
+        border-radius: 3px;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    label#uploadAvatar:hover div {
+        background: #fff;
+    }
+    
+    label#uploadAvatar div span {
+        font-weight: 900;
+        /*    font-style: oblique;*/
+        display: inline-block;
+        width: auto;
+        text-decoration: underline;
+    }
+    /*Personalisation checkboxes*/
+    
+    input[type="checkbox"] {
+        /*display: none;*/
+        position: absolute;
+        top: 0;
+        left: -9999px;
+    }
+    
+    input[type="checkbox"] + label {
+        color: DeepPink;
+    }
+    
+    input[type="checkbox"] + label span {
+        display: inline-block;
+        background: #FFB6C1;
+        width: 19px;
+        height: 19px;
+        margin: -4px 10px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    
+    input[type="checkbox"]:focus + label {
+        border: 1px dotted #C71585;
+    }
+    
+    input[type="checkbox"]:checked + label {
+        background: #FFB6C1;
+    }
+    
+    input[type="checkbox"]:checked + label span {
+        background: #FCEAF0;
+    }
+    
+    input[type="checkbox"] + label span,
+    input[type="checkbox"]:checked + label span {
+        -webkit-transition: background-color 0.2s linear;
+        -o-transition: background-color 0.2s linear;
+        -moz-transition: background-color 0.2s linear;
+        transition: background-color 0.2s linear;
+    }
+    /*Textarea*/
+    
+    fieldset.ralouille {}
+    
+    fieldset.ralouille span {
+        display: none;
+        /*if desktop > display: inline-table;
+        vertical-align: top;*/
+        padding: 0;
+    }
+    /*Boutons*/
+    
+    input[type=submit],
+    input[type=reset] {
+        border: none;
+        background: #C71585;
+        color: #FFB6C1;
+        cursor: pointer;
+        margin: 20px 0;
+        float: right;
+    }
+    
+    input[type=submit]:hover,
+    input[type=reset]:hover {
+        color: #C71585;
+        background: #FFB6C1;
+    }
+    /*footer*/
+    
+    footer {
+        height: 200px
+    }
+    
+    footer H2,
+    footer h3 {
+        text-align: center;
+        min-height: auto;
+    }
+    /*Les colonnes en pourcentage*/
+    
+    .column {
+        float: left;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .column12 {
+        width: 100%
+    }
+    
+    .column11 {
+        width: 91.66666667%
+    }
+    
+    .column10 {
+        width: 83.33333333%
+    }
+    
+    .column9 {
+        width: 75%
+    }
+    
+    .column8 {
+        width: 66.66666667%
+    }
+    
+    .column7 {
+        width: 58.33333333%
+    }
+    
+    .column6 {
+        width: 50%
+    }
+    
+    .column5 {
+        width: 41.66666667%
+    }
+    
+    .column4 {
+        width: 33.33333333%
+    }
+    
+    .column3 {
+        width: 25%
+    }
+    
+    .column2 {
+        width: 16.66666667%
+    }
+    
+    .column1 {
+        width: 8.33333333%
+    }
+    /*Paddings*/
+    
+    .padding15 {
+        padding: 0 15px;
+    }
+    /*margins*/
+    
+    .marginTop15 {
+        margin: 15px 0 0 0;
+    }
+    
+    .marginTop30 {
+        margin: 30px 0 0 0;
+    }
+    
+    .marginBottom15 {
+        margin: 0 0 15px 0;
+    }
+    
+    .marginBottom30 {
+        margin: 0 0 30px 0;
+    }
+    /*Débugs*/
+    
+    fieldset#quisuisje label span {
+        display: none;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        /* only screen but all hardware > for more info > https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+        .column12-tablet {
+            width: 100%
+        }
+        .column11-tablet {
+            width: 91.66666667%
+        }
+        .column10-tablet {
+            width: 83.33333333%
+        }
+        .column9-tablet {
+            width: 75%
+        }
+        .column8-tablet {
+            width: 66.66666667%
+        }
+        .column7-tablet {
+            width: 58.33333333%
+        }
+        .column6-tablet {
+            width: 50%
+        }
+        .column5-tablet {
+            width: 41.66666667%
+        }
+        .column4-tablet {
+            width: 33.33333333%
+        }
+        .column3-tablet {
+            width: 25%
+        }
+        .column2-tablet {
+            width: 16.66666667%
+        }
+        .column1-tablet {
+            width: 8.33333333%
+        }
+    }
+    /*fin @media>=768px query tablet*/
+    
+    @media only screen and (min-width: 997px) {
+        /* only screen but all hardware > for more info > https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+        .column12-desktop {
+            width: 100%
+        }
+        .column11-desktop {
+            width: 91.66666667%
+        }
+        .column10-desktop {
+            width: 83.33333333%
+        }
+        .column9-desktop {
+            width: 75%
+        }
+        .column8-desktop {
+            width: 66.66666667%
+        }
+        .column7-desktop {
+            width: 58.33333333%
+        }
+        .column6-desktop {
+            width: 50%
+        }
+        .column5-desktop {
+            width: 41.66666667%
+        }
+        .column4-desktop {
+            width: 33.33333333%
+        }
+        .column3-desktop {
+            width: 25%
+        }
+        .column2-desktop {
+            width: 16.66666667%
+        }
+        .column1-desktop {
+            width: 8.33333333%
+        }
+        /*Divers*/
+        .boutons {
+            min-height: 266px;
+        }
+        fieldset.ralouille span {
+            display: inline-block;
+            vertical-align: top;
+        }
+        label span {
+            display: inline-block;
+        }
+        .boutons input {
+            height: 220px;
+        }
+        /*Débugs*/
+        fieldset#quisuisje label span {
+            display: inline-block;
+            font-size: 90%;
+            padding: 20px 0 0 0;
+        }
+        label span.sujet {
+            display: inline-block;
+            padding: 15px;
+        }
+        #sujet {
+            margin-left: -30px;
+        }
+        */
+        /*fin @media>=997px query desktop*/
+    }
+    
+    @media only screen and (min-width: 1170px) {
+        body {
+            font-size: 1.5rem;
+        }
+        fieldset#quisuisje label span {
+            display: inline-block;
+            font-size: 90%;
+            padding: 10px 0 0 0;
+        }
+    }
+    /*fin @media>=1170px query desktop*/
+    
+    @media only screen and (min-width: 1400px) {
+        body {
+            font-size: 2rem;
+        }
+        textarea {
+            font-size: 50%;
+        }
+        textarea:focus {
+            font-size: 60%;
+        }
+        input#sujet {
+            margin-left: -42px;
+            font-size: 70%;
+        }
+        input#sujet:fovus {
+            font-size: 80%;
+        }
+    }
+    /*fin @media>=1170px query desktop*/
+    /*
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email]
+*/
+    /*
+//////////
+Fin styles
+//////////
+*/
